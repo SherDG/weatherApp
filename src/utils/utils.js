@@ -31,7 +31,7 @@ exports.forecast = (latitide,longitude, callback) => {
             callback("Unable find location", undefined);
         }
         else {
-            callback(undefined, res.body.current.weather_descriptions[0]+". It is currently "+res.body.current.temperature+". Feels like "+ res.body.current.feelslike);
+            callback(undefined, res.body.current.weather_descriptions[0]+". It is currently "+res.body.current.temperature+"C. Feels like "+ res.body.current.feelslike+"C.");
         }
     });
 

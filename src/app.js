@@ -5,6 +5,8 @@
 // git add --> commitn --> push
 // git push heroku appMain:main
 
+
+
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
@@ -27,7 +29,7 @@ app.get('/', (req, res,) => {
     res.render('index', {
         title: 'Weather app!',
         name: 'SherDG',
-        text: 'Use this page to get your weathewr forecast.'
+        text: 'Use this page(with english language) to get your weather forecast.'
     });
 });
 
