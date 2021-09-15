@@ -2,8 +2,8 @@
 //nodemon src/app.js -e js,hbs
 
 //HEROKU
-// git push heroku main
-
+// git add --> commitn --> push
+// git push heroku appMain:main
 
 const express = require("express");
 const path = require("path");
@@ -15,7 +15,7 @@ const app = express();
 const publicDir = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
-const port = process.env.PORT || 300
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);

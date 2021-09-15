@@ -21,7 +21,7 @@ exports.geocode = (address, callback) => {
 
 exports.forecast = (latitide,longitude, callback) => {
     // const url = "http://api.weatherstack.com/current?access_key=a9b8ae4ee14142ebd730995730def7eb&query="+location+'"';
-    const url = "http://api.weatherstack.com/current?access_key=a9b8ae4ee14142ebd730995730def7eb&query="+latitide+","+longitude+'"';
+    const url = "http://api.weatherstack.com/current?access_key=a9b8ae4ee14142ebd730995730def7eb&unit=m&query="+longitude+","+latitide+'"';
     request({ url: url, json: true }, (err, res) => {
         // console.log(JSON.parse(res.body).current);
         if (err) {
@@ -31,7 +31,7 @@ exports.forecast = (latitide,longitude, callback) => {
             callback("Unable find location", undefined);
         }
         else {
-            callback(undefined, res.body.current.weather_descriptions[0]);
+            callback(undefined, res.body.current.weather_descriptions[0]+". It is currently "+res.body.current.temperature+". Feels like "+ res.body.current.feelslike);
         }
     });
 
