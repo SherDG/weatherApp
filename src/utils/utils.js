@@ -20,11 +20,10 @@ exports.geocode = (address, callback) => {
 };
 
 exports.forecast = (latitide,longitude, callback) => {
-    // const url = "http://api.weatherstack.com/current?access_key=a9b8ae4ee14142ebd730995730def7eb&query="+location+'"';
     const url = "http://api.weatherstack.com/current?access_key=a9b8ae4ee14142ebd730995730def7eb&unit=m&query="+longitude+","+latitide+'"';
-    request({ url: url, json: true }, (err, res) => {
+    request({ url: url, json: true }, (error, res) => {
         // console.log(JSON.parse(res.body).current);
-        if (err) {
+        if (error) {
             callback("Service unavaileble", undefined);
         }
         else if (res.body.error) {

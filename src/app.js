@@ -46,18 +46,20 @@ app.get("/help", (req, res,) => {
 app.get("/weather", (req, res,) => {
     if (!req.query.adress) {
         res.send({
-            errror: "You should provide adress in query parameter!"
+            error: "You should provide adress in query parameter!"
         })
     }
     else {
-        utils.geocode(req.query.adress, (err, { latitude, longitude, location } = {}) => {
-            if (err) {
-                return res.send({ err });
+        utils.geocode(req.query.adress, (error, { latitude, longitude, location } = {}) => {
+            if (error) {
+                console.log({error});
+                return res.send({error});
             }
 
-            utils.forecast(latitude, longitude, (err, data) => {
-                if (err) {
-                    return res.send({ err });
+            utils.forecast(latitude, longitude, (error, data) => {
+                if (error) {
+                    // console.log({ err });
+                    return res.send({error});
                 }
                 console.log(location);
                 console.log(data);

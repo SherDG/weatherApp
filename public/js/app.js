@@ -22,6 +22,7 @@
 //     })
 // });
 
+
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
 const message1 = document.querySelector('#message1');
@@ -38,8 +39,12 @@ weatherForm.addEventListener('submit', (event) => {
 
     fetch('/weather?adress=' + location).then((response) => {
         response.json().then((data) => {
+            // console.log('Check',data);
+            // console.log('Check1',data.err);
+            // console.log('Check2');
             if (data.error) {
-                console.log(data.error);
+                // console.log(data);
+                // console.log(data.error);
                 message1.textContent = data.error;
             }
             else {
@@ -52,6 +57,4 @@ weatherForm.addEventListener('submit', (event) => {
 
         })
     });
-    // console.log('Test!');
-    // console.log(location);
 });
